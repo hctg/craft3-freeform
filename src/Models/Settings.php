@@ -470,7 +470,7 @@ class Settings extends Model
             return [];
         }
 
-        $array = preg_split('/[\ \n\,]+/', $value);
+        $array = preg_split('/[\\n\,]+/', $value);
         $array = array_map('trim', $array);
         $array = array_unique($array);
 
