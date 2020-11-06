@@ -73,7 +73,8 @@ class MailerService extends BaseService implements MailHandlerInterface
         foreach ($previousRecipients as $index => $value) {
             $exploded = explode(',', $value);
             foreach ($exploded as $emailString) {
-                $recipients[] = trim($emailString);
+                //$recipients[] = trim($emailString);
+                $recipients[] = htmlspecialchars_decode(trim($emailString));
             }
         }
 
