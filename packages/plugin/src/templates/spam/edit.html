@@ -1,0 +1,29 @@
+{% extends "freeform/submissions/_edit_base.html" %}
+{% import "_includes/forms" as forms %}
+
+{% set title = "{title}"|t('freeform', {title: title}) %}
+{% set selectedSubnavItem = "spam" %}
+{% set saveShortcutRedirect = 'freeform/spam/{id}' %}
+{% set fullPageForm = true %}
+{% set actionUrl = 'freeform/spam-submissions/allow' %}
+{% set redirectUrl = 'freeform/spam' %}
+
+{% set crumbs = [
+    { label: craft.freeform.name, url: url('freeform') },
+    { label: "Forms"|t("freeform"), url: url('freeform/forms') },
+    { label: submission.form.name, url: url('freeform/forms/' ~ submission.form.id) },
+    { label: "Spam"|t('freeform'), url: url('freeform/spam') },
+] %}
+
+{% block actionButton %}
+    <div class="buttons">
+        <div class="btngroup submit">
+            <button type="button" class="btn" id="delete-button" data-id="{{ submission.id }}">
+                {{ 'Delete'|t('freeform') }}
+            </button>
+        </div>
+        <div class="btngroup submit">
+            <input type="submit" class="btn submit" value="{{ 'Allow'|t('freeform') }}">
+        </div>
+    </div>
+{% endblock %}
